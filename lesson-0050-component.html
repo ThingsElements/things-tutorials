@@ -1,0 +1,29 @@
+<dom-module id="x-custom">
+  <template>
+    <div>I will respond</div>
+    <div>to a tap on</div>
+    <div>any of my children!</div>
+    <div id="special">I am special!</div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'x-custom',
+
+      listeners: {
+        'tap': 'regularTap',
+        'special.tap': 'specialTap'
+      },
+
+      regularTap: function(e) {
+        alert("Thank you for tapping");
+      },
+
+      specialTap: function(e) {
+        alert("It was special tapping");
+      }
+
+    });
+  </script>
+</dom-module>
