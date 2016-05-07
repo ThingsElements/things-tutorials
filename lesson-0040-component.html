@@ -1,11 +1,16 @@
 <dom-module id="employee-search">
 
   <template>
+    
     <input value="{{searchString::input}}">
-    <template is="dom-repeat" items="{{employees}}" as="employee"
-        filter="{{computeFilter(searchString)}}">
+
+    <template is="dom-repeat"
+              items="{{employees}}"
+              as="employee"
+              filter="{{computeFilter(searchString)}}">
         <div>{{employee.lastname}}, {{employee.firstname}}</div>
     </template>
+
   </template>
 
   <script>
