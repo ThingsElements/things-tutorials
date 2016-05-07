@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Polymer Tutorial 002 - Templates with polymer, dom-if</title>
+
+    <base href="http://polygit.org/components/">
+
+    <script src="webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="polymer/polymer.html">
+  </head>
+
+  <body>
+
+    <template id="template" is="dom-bind">
+
+      <template is="dom-if" if="[[ladies]]">
+        <p>Hello, Ladies.</p>
+      </template>
+
+      <template is="dom-if" if="[[!ladies]]">
+        <p>Hello, Gentlemen.</p>
+      </template>
+
+    </template>
+
+    <script>
+      var template = document.querySelector("#template")
+      template.ladies = false
+    </script>
+
+  </body>
+</html>

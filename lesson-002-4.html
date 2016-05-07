@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Polymer Tutorial 002 - Templates with polymer, dom-repeat</title>
+
+    <base href="http://polygit.org/components/">
+
+    <script src="webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="polymer/polymer.html">
+  </head>
+
+  <body>
+
+    <template id="template" is="dom-bind">
+
+      <template is="dom-repeat" items="[[menuItems]]">
+        <div>
+          <span>{{item.name}}</span>
+          <span>{{item.ordered}}</span>
+          <button on-tap="order">Order</button>
+        </div>
+      </template>
+
+    </template>
+
+    <script>
+      var template = document.querySelector("#template")
+      template.menuItems = [
+        { name: "Pizza", ordered: 0 },
+        { name: "Pasta", ordered: 0 },
+        { name: "Toast", ordered: 0 }
+      ];
+
+      template.order = function(e) {
+        var model = e.model
+        model.set('item.ordered', model.item.ordered + 1)
+      }
+      
+    </script>
+
+  </body>
+</html>

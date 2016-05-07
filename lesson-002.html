@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Polymer Tutorial 002 - WebComponent Templates</title>
+  </head>
+
+  <body>
+
+    <template id="template">
+      <p></p>
+    </template>
+
+    <script>
+      function clone(text) {
+        var template = document.querySelector('#template');
+        
+        var clone = document.importNode(template.content, true);
+        clone.querySelector("p").innerText = text
+        document.body.appendChild(clone)
+      }
+
+      clone("Hello, Ladies.")
+      clone("Hello, Gentlemen.")
+    </script>
+  </body>
+</html>

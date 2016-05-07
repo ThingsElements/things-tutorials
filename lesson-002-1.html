@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Polymer Tutorial 002 - Templates with polymer, dom-bind(auto-binding template)</title>
+
+    <base href="http://polygit.org/components/">
+
+    <script src="webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="polymer/polymer.html">
+  </head>
+
+  <body>
+
+    <template id="template1" is="dom-bind">
+      <p>[[text]]</p>
+    </template>
+
+    <template id="template2" is="dom-bind">
+      <p>[[text]]</p>
+    </template>
+
+    <script>
+      var template1 = document.querySelector("#template1")
+      template1.text = "Hello, Ladies"
+
+      var template2 = document.querySelector("#template2")
+      template2.text = "Hello, Gentlemen"
+    </script>
+
+  </body>
+</html>
