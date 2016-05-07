@@ -40,19 +40,18 @@
   </template>
 
   <script>
-    window.addEventListener('HTMLImportsLoaded', function(e) {
-      Polymer({
-        is: 'x-product',
+  
+    Polymer({
+      is: 'x-product',
 
-        properties: {
-          url: String,
-          name: String
-        },
+      properties: {
+        url: String,
+        name: String
+      },
 
-        _onClick: function(e) {
-          window.location = this.url;
-        }
-      });
+      _onClick: function(e) {
+        window.location = this.url;
+      }
     });
 
   </script>
