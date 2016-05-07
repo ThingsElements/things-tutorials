@@ -1,0 +1,22 @@
+<dom-module id="x-custom">
+
+  <template>
+    <button on-click="handleClick">Kick Me</button>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'x-custom',
+
+      handleClick: function(e, detail) {
+        this.fire('kick', {
+          kicked: true
+        });
+      }
+
+    });
+
+  </script>
+
+</dom-module>

@@ -1,9 +1,15 @@
 <dom-module id="x-custom">
 
   <template>
+  <!-- 
+    Tip: Use on-tap rather than on-click for an event that fires consistently across both touch (mobile) and click (desktop) devices 
+  -->
+  <!-- 
+    Because the event name is specified using an HTML attribute, the event name is always converted to lowercase. This is because HTML attribute names are case insensitive. So specifying on-myEvent adds a listener for myevent. The event handler name (for example, handleClick) is case sensitive.
+  -->
     <button on-tap="handleTap">Kick Me</button>
   </template>
-  
+
   <script>
     Polymer({
       is: 'x-custom',
