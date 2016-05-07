@@ -1,0 +1,15 @@
+<dom-module id="x-custom">
+
+  <template>
+    <button on-tap="handleTap">Kick Me</button>
+  </template>
+  
+  <script>
+    Polymer({
+      is: 'x-custom',
+      handleTap: function() {
+        alert('Ow!');
+      }
+    });
+  </script>
+</dom-module>
