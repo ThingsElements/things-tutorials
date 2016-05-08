@@ -7,7 +7,7 @@
       }
     </style>
 
-    <content></content>
+    <content select="div"></content>
 
     <div>Local DOM #1</div>
     <div>Local DOM #2</div>
@@ -29,8 +29,8 @@
        * Light DOM은 포함하지 않는다.
        */
       _onTap: function(e) {
-        // if(e.target.tagName !== 'DIV')
-        //   return
+        if(e.target.tagName !== 'DIV')
+          return
 
         this.toggleClass('red', false, e.target)
       }
