@@ -29,10 +29,10 @@
        * Light DOM은 포함하지 않는다.
        */
       _onTap: function(e) {
-        if(e.target.tagName !== 'DIV')
-          return
+        // if(e.target.tagName !== 'DIV')
+        //   return
 
-        this.toggleClass('red', true, e.target)
+        this.toggleClass('red', false, e.target)
       }
 
     });
