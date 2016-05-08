@@ -5,7 +5,7 @@
       :host {
         display: block;
       }
-      
+
       .red {
         background-color: red;
       }
@@ -36,7 +36,7 @@
         if(e.target.tagName !== 'DIV')
           return
 
-        this.toggleClass('red', false, e.target)
+        this.toggleClass('red', undefined, e.target)
       }
 
     });
