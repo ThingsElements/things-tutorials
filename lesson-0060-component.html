@@ -1,0 +1,23 @@
+<dom-module id="x-custom">
+
+  <template>
+    <content></content>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'x-custom',
+
+      listeners: {
+        'tap': '_onTap'
+      },
+
+      _onTap: function(e) {
+        console.log('tap')
+        this.$$("div").innerText = "첫번째 엘리먼트"
+      }
+
+    });
+  </script>
+</dom-module>
