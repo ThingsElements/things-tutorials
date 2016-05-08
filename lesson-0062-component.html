@@ -28,12 +28,15 @@
         'tap': '_onTap'
       },
 
+      /*
+       * $$(selector) 는 Local DOM의 범위에서 엘리먼트를 찾는다.
+       * Light DOM은 포함하지 않는다.
+       */
       _onTap: function(e) {
         if(e.target.tagName !== 'DIV')
           return
 
-        e.target.toggleClass("red")
-        // e.t.toggleClass('red', true, e.target)
+        this.classFollows('red', e.target)
       }
 
     });

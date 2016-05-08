@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Polymer Tutorial - Utility Function toggleClass </title>
+    <title>Polymer Tutorial - Utility Function classFollows </title>
 
     <base href="http://polygit.org/things-tutorials+ThingsElements+*/components/">
 
@@ -24,7 +24,7 @@
   <body>
 
     <x-custom>
-      <div>Light DOM #1</div>
+      <div class="red">Light DOM #1</div>
       <div>Light DOM #2</div>
       <div>Light DOM #3</div>
       <div>Light DOM #4</div>
@@ -37,7 +37,7 @@
       var button = document.querySelector("button")
 
       button.addEventListener("click", function() {
-        custom.toggleClass("red")
+        custom.classFollows("red")
       })
     </script>
 
