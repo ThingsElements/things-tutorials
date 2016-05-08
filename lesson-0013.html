@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Polymer Tutorial - Shadow DOM (Styling for Light DOM)</title>
+
+    <base href="http://polygit.org/components/">
+
+    <!-- Shadow DOM를 포함하는 polyfill은 webcomponents.js 이다. -->
+    <script src="webcomponentsjs/webcomponents.js"></script>
+
+  </head>
+
+  <body>
+    
+    <div>
+      <h3>Light DOM</h3>
+      <section>
+        <div>I'm not underlined</div>
+        <p>I'm underlined in Shadow DOM!</p>
+      </section>
+    </div>
+
+    <script>
+    var div = document.querySelector('div');
+    var root = div.createShadowRoot();
+    root.innerHTML = '\
+        <style>\
+          h3 { color: red; }\
+          content[select="h3"]::content > h3 {\
+            color: green;\
+          }\
+          ::content section p {\
+            text-decoration: underline;\
+          }\
+        </style>\
+        <h3>Shadow DOM</h3>\
+        <content select="h3"></content>\
+        <content select="section"></content>';
+    </script>
+
+    <br>
+    <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/">Shadow DOM</a>
+
+  </body>
+  
+</html>
