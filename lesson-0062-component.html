@@ -32,8 +32,11 @@
         if(e.target.tagName !== 'DIV')
           return
 
-        var old = this.$$('div.red')
-        console.log('old', old)
+        var content = this.querySelector('content');
+        
+        var old = content.querySelector('div.red')
+        if(!old)
+          old = this.$$('div.red')
 
         this.classFollows('red', e.target, old)
       }
