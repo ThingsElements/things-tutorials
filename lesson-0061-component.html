@@ -28,12 +28,18 @@
         'tap': '_onTap'
       },
 
+      _hasClass: function(el, name) {
+       return new RegExp('(\\s|^)'+name+'(\\s|$)').test(el.className);
+      },
+
       _onTap: function(e) {
         if(e.target.tagName !== 'DIV')
           return
 
-        e.target.toggleClass("red")
-        // e.t.toggleClass('red', true, e.target)
+        var toggle = !this._hasClass(e.target, 'red')
+
+        // Polymer.Base를 상속한 엘리먼트만 toggleClass를 사용할 수 있다.
+        this.toggleClass('red', toggle, e.target)
       }
 
     });
