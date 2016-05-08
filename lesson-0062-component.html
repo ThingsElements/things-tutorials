@@ -32,6 +32,10 @@
         if(e.target.tagName !== 'DIV')
           return
 
+        /*
+         * 이전에 선택되어있는 DIV를 찾는다.
+         * LightDOM에서 먼저 찾아보고, 다시 LocalDOM에서 찾는다.
+         */
         var old = Polymer.dom(this).querySelector('div.red')
         if(!old)
           old = this.$$('div.red')

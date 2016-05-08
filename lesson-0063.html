@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Polymer Tutorial - Utility Function debounce </title>
+
+    <base href="http://polygit.org/things-tutorials+ThingsElements+*/mark-down+robdodson+*/components/">
+
+    <script src="webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="polymer/polymer.html">
+
+    <link rel="import" href="iron-autogrow-textarea/iron-autogrow-textarea.html">
+    <link rel="import" href="mark-down/mark-down.html">
+    <link rel="import" href="paper-spinner/paper-spinner.html">
+
+  </head>
+
+  <body>
+
+    <dom-module id="x-custom">
+
+      <template>
+        <style>
+        iron-autogrow-textarea {
+          width: 300px;
+        }
+        div {
+          background-color: yellow;
+          width: 300px;
+          height: 200px;
+        }
+        div.active {
+          background-color: 
+        }
+        </style>
+
+        <iron-autogrow-textarea bind-value="{{text}}"></iron-autogrow-textarea>
+        <paper-spinner></paper-spinner>
+        <div>Text: [[copied]]</div>
+        <button id='cancel'>cancel</button>
+        <button id='doitnow'>doit now</button>
+
+      </template>
+
+      <script>
+        window.addEventListener('WebComponentsReady', function(e) {
+          Polymer({
+            is: 'x-custom',
+
+            properties: {
+              text: {
+                type: String,
+                observer: "_onChangeText"
+              },
+              copied: String
+            },
+
+            listeners: {
+              'cancel.click': '_onCancel',
+              'doitnow.click': '_onDoItNow'
+            },
+
+            _checkDebouncer: function() {
+              if(this.isDebouncerActive('copytext'))
+                this.$$('paper-spinner').active = true
+              else
+                this.$$('paper-spinner').active = false
+            },
+
+            _onChangeText: function(e) {
+              this._checkDebouncer()
+
+              this.debounce('copytext', function() {
+                this.copied = this.text
+                this._checkDebouncer()
+              }, 3000)
+            },
+
+            _onCancel: function(e) {
+              this.cancelDebouncer('copytext')
+              this._checkDebouncer()
+            },
+
+            _onDoItNow: function(e) {
+              this.flushDebouncer('copytext')
+            }
+          });
+        });
+
+      </script>
+
+    </dom-module>
+
+    <mark-down>
+    ## Utility 함수 *debounce*를 설명합니다.
+    ### debounce는 과다한 이벤트 로직 실행을 방지하기 위해 사용되는 함수입니다.
+    ### 호출이 반복되는 동안에 로직 실행을 방지하며, 호출이 멈춘 뒤, 설정한 시간이 지나고 나서야 로직을 실행하게 됩니다.
+
+    ### 이 예제에서는 아래 textarea에서 타이핑이 멈춘 뒤 3초 후에 텍스트가 아래 박스에 표시되게 됩니다.
+    ### 3초가 되기 전에 cancel 버튼을 누르면, debouncer 실행이 취소됩니다.
+    ### 3초가 되기 전에 doit now 버튼을 누르면, debouncer가 바로 실행됩니다.
+    </mark-down>
+
+    <x-custom>
+    </x-custom>
+
+  </body>
+</html>

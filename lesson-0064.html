@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Polymer Tutorial - Utility Function transform </title>
+
+    <base href="http://polygit.org/things-tutorials+ThingsElements+*/mark-down+robdodson+*/components/">
+
+    <script src="webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="polymer/polymer.html">
+
+    <link rel="import" href="mark-down/mark-down.html">
+
+  </head>
+
+  <body>
+
+    <dom-module id="x-custom">
+
+      <template>
+        <style>
+        div {
+          margin: 100px;
+          background-color: cyan;
+          width: 200px;
+          height: 200px;
+        }
+        </style>
+
+        <div id="target">이 박스가 회전합니다.</div>
+
+        <button id="axis-x" data-axis="X">X-Axis</button>
+        <button id="axis-y" data-axis="Y">Y-Axis</button>
+        <button id="axis-z" data-axis="Z">Z-Axis</button>
+
+      </template>
+
+      <script>
+        window.addEventListener('WebComponentsReady', function(e) {
+          Polymer({
+            is: 'x-custom',
+
+            properties: {
+              axis: {
+                value: 'X'
+              }
+            },
+
+            listeners: {
+              'axis-x.click': '_changeAxis',
+              'axis-y.click': '_changeAxis',
+              'axis-z.click': '_changeAxis',
+            },
+
+            attached: function() {
+              var degree = 0
+              var self = this
+              setInterval(function() {
+                self.transform(`rotate${self.axis}(${degree++}deg)`, self.$.target);
+              }, 10)
+            },
+
+            _changeAxis: function(e) {
+              this.axis = e.target.getAttribute('data-axis')
+            }
+
+          });
+        });
+
+      </script>
+
+    </dom-module>
+
+    <mark-down>
+    ## Utility 함수 *transform*을 설명합니다.
+    ### CSS transform을 적용하는 함수입니다.
+    ### CSS transform의 지시어가 브라우저마다 다양하지만, 이 함수를 사용하면 신경쓰지 않아도 됩니다.
+    </mark-down>
+
+    <x-custom>
+    </x-custom>
+
+  </body>
+</html>
