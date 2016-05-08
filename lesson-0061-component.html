@@ -33,6 +33,7 @@
        * Light DOM은 포함하지 않는다.
        */
       _onTap: function(e) {
+        console.log(e.target.tagName)
         if(e.target.tagName !== 'DIV')
           return
 
