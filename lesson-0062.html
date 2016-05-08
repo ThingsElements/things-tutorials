@@ -1,6 +1,8 @@
 <html>
   <head>
-    <title>Polymer Tutorial - Utility Function classFollows </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Polymer Tutorial - Utility Function toggleClass </title>
 
     <base href="http://polygit.org/things-tutorials+ThingsElements+*/components/">
 
@@ -18,28 +20,24 @@
       .red {
         background-color: orange;
       }
+
     </style>
   </head>
 
   <body>
 
+    <p>테스트 시나리오</p>
+    
+    <ul>
+      <li>Light DOM과 Local DOM 라인을 클릭해서, 선택된 라인의 배경색만 바뀌는 것을 확인.</li>
+    </ul>
+    
     <x-custom>
       <div class="red">Light DOM #1</div>
       <div>Light DOM #2</div>
       <div>Light DOM #3</div>
       <div>Light DOM #4</div>
     </x-custom>
-
-    <button>Turn Red</button>
-
-    <script>
-      var custom = document.querySelector("x-custom")
-      var button = document.querySelector("button")
-
-      button.addEventListener("click", function() {
-        custom.classFollows("red")
-      })
-    </script>
 
   </body>
 </html>

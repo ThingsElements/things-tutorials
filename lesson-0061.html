@@ -1,5 +1,7 @@
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
     <title>Polymer Tutorial - Utility Function toggleClass </title>
 
     <base href="http://polygit.org/things-tutorials+ThingsElements+*/components/">
@@ -18,11 +20,22 @@
       .red {
         background-color: orange;
       }
+
+      .navy {
+        background-color: navy;
+      }
     </style>
   </head>
 
   <body>
 
+    <p>테스트 시나리오</p>
+    
+    <ul>
+      <li>Light DOM과 Local DOM 라인을 클릭해서, 라인의 배경색이 토글되는 것을 확인.</li>
+      <li>Turn Background 버튼을 클릭해서, 전체 배경색이 토글되는 것을 확인.</li>
+    </ul>
+    
     <x-custom>
       <div>Light DOM #1</div>
       <div>Light DOM #2</div>
@@ -30,14 +43,14 @@
       <div>Light DOM #4</div>
     </x-custom>
 
-    <button>Turn Red</button>
+    <button>Turn Background</button>
 
     <script>
       var custom = document.querySelector("x-custom")
       var button = document.querySelector("button")
 
       button.addEventListener("click", function() {
-        custom.toggleClass("red")
+        custom.toggleClass("navy")
       })
     </script>
 
