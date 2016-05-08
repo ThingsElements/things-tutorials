@@ -1,0 +1,40 @@
+<dom-module id="x-custom">
+
+  <template>
+    <style>
+      .red {
+        background-color: red;
+      }
+    </style>
+
+    <content></content>
+
+    <div>Local DOM #1</div>
+    <div>Local DOM #2</div>
+    <div>Local DOM #3</div>
+    <div>Local DOM #4</div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'x-custom',
+
+      listeners: {
+        'tap': '_onTap'
+      },
+
+      /*
+       * $$(selector) 는 Local DOM의 범위에서 엘리먼트를 찾는다.
+       * Light DOM은 포함하지 않는다.
+       */
+      _onTap: function(e) {
+        if(e.target.tagName !== 'DIV')
+          return
+
+        this.toggleClass('red', true, e.target)
+      }
+
+    });
+  </script>
+</dom-module>
