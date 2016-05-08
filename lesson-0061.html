@@ -11,6 +11,11 @@
     <link rel="import" href="things-tutorials/lesson-0061-component.html">
 
     <style>
+      x-custom {
+        padding: 20px;
+        margin: 20px;
+      }
+
       .red {
         background-color: orange;
       }
@@ -25,6 +30,18 @@
       <div>Light DOM #3</div>
       <div>Light DOM #4</div>
     </x-custom>
+
+    <button>Turn Red</button>
+
+    <script>
+      var custom = document.querySelector("x-custom")
+      var button = document.querySelector("button")
+
+      button.addEventListener("click", function() {
+        console.log('click')
+        custom.toggleClass("red", true)
+      })
+    </script>
 
   </body>
 </html>
