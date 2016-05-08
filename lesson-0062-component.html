@@ -32,9 +32,7 @@
         if(e.target.tagName !== 'DIV')
           return
 
-        var content = this.querySelector('content');
-        
-        var old = content.querySelector('div.red')
+        var old = Polymer.dom(this).querySelector('div.red')
         if(!old)
           old = this.$$('div.red')
 
