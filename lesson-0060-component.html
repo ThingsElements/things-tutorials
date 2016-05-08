@@ -3,10 +3,10 @@
   <template>
     <content></content>
 
-    <div>I will respond</div>
-    <div>to a tap on</div>
-    <div>any of my children!</div>
-    <div>I am special!</div>
+    <div>Local DOM #1</div>
+    <div>Local DOM #2</div>
+    <div>Local DOM #3</div>
+    <div>Local DOM #4</div>
   </template>
 
   <script>
@@ -18,9 +18,14 @@
         'tap': '_onTap'
       },
 
+      /*
+       * $$(selector) 는 Local DOM의 범위에서 엘리먼트를 찾는다.
+       * Light DOM은 포함하지 않는다.
+       */
       _onTap: function(e) {
-        console.log('tap')
-        this.$$("div").innerText = "첫번째 엘리먼트"
+        var div = this.$$("div")
+        var text = div.innerText
+        div.innerText = text + " : 첫번째 엘리먼트"
       }
 
     });
