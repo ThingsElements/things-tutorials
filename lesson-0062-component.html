@@ -34,11 +34,13 @@
 
         /*
          * 이전에 선택되어있는 DIV를 찾는다.
-         * LightDOM에서 먼저 찾아보고, 다시 LocalDOM에서 찾는다.
+         * this.$$('div.red') 를 사용하면 안된다.(LocalDOM에서만 찾기 때문.)
          */
-        var old = Polymer.dom(this).querySelector('div.red')
-        if(!old)
-          old = this.$$('div.red')
+
+        // var old = this.$$('div.red')
+        var old = this.querySelector('div.red')
+        // if(!old)
+        //   old = this.$$('div.red')
 
         this.classFollows('red', e.target, old)
       }
