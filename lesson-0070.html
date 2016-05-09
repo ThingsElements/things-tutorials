@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Polymer Tutorial - Declared properties </title>
+
+    <base href="http://polygit.org/mark-down+robdodson+*/components/">
+
+    <script src="webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="polymer/polymer.html">
+
+    <link rel="import" href="mark-down/mark-down.html">
+
+  </head>
+
+  <body>
+
+    <mark-down>
+    ## 컴포넌트의 속성을 선언하는 것을 설명합니다.
+    ### https://www.polymer-project.org/1.0/docs/devguide/properties.html
+    ### 엘리먼트의 Public API 일부인 속성은 properties 에 선언되어야 한다.
+    </mark-down>
+
+    <script>
+      window.addEventListener('WebComponentsReady', function(e) {
+        Polymer({
+          is: 'x-custom',
+
+          properties: {
+            user: String,
+            manager: {
+              type: Boolean,
+              notify: true
+            }
+          },
+
+          attached: function() {
+            // render
+            this.textContent = 'Hello World, my user is ' + (this.user || 'nobody') + '.\n' +
+              'This user is ' + (this.manager ? '' : 'not') + ' a manager.';
+          }
+
+        });
+      });
+
+    </script>
+
+    <x-custom user="Scott" manager></x-custom>
+
+  </body>
+</html>
