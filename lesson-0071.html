@@ -1,26 +1,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-
     <title>Polymer Tutorial - Declared properties </title>
-
     <base href="http://polygit.org/mark-down+robdodson+*/components/">
-
-    <script src="webcomponentsjs/webcomponents-lite.js"></script>
-
-    <link rel="import" href="polymer/polymer.html">
-
+    <link rel="import" href="https://polygit.org/polymer+^1.9.1/webcomponentsjs+^0.7.0/components/polymer/polymer.html">
+    <link rel="import" href="https://polygit.org/polymer+^1.9.1/webcomponentsjs+^0.7.0/components/webcomponentsjs/webcomponents.js">
     <link rel="import" href="mark-down/mark-down.html">
-
   </head>
-
   <body>
-
-    <mark-down>
-    ## 컴포넌트의 속성을 선언하는 것을 설명합니다.
-    ### https://www.polymer-project.org/1.0/docs/devguide/properties.html
-    ### 엘리먼트의 카멜케이스 속성을 attribute로 설정하기 위해서는 속성명으로 dash-case를 사용하여야 한다.
-    </mark-down>
 
     <dom-module id="x-sub-property-observer">
       <template>
@@ -47,12 +34,11 @@
           // element prototype. The argument to the method is the new value
           // of the sub-property.
           userNameChanged: function(name) {
-            console.log('new name: ' + name);
+            alert('new name: ' + name);
           },
         });
       </script>
     </dom-module>
-    
     <x-sub-property-observer user-name="Scott"></x-sub-property-observer>
 
   </body>
